@@ -5,8 +5,8 @@ library(dplyr)
 library(readr)
 
 # Load data
-trend_data <- read_csv("/Users/JwR-MBP15/Desktop/Transgenia/AutoChilango/trend_data.csv")
-trend_description <- read_csv("/Users/JwR-MBP15/Desktop/Transgenia/AutoChilango//trend_description.csv")
+trend_data <- read_csv("/Users/JwR-MBP15/Desktop/Transgenia/devs/e-model/data/trend_data.csv")
+trend_description <- read_csv("/Users/JwR-MBP15/Desktop/Transgenia/devs/e-model/data/trend_description.csv")
 
 # Define UI
 ui <- fluidPage(theme = shinytheme("lumen"),
