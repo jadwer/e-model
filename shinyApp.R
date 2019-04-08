@@ -10,28 +10,28 @@ trend_description <- read_csv("/Users/JwR-MBP15/Desktop/Transgenia/devs/e-model/
 
 # Define UI
 ui <- fluidPage(theme = shinytheme("lumen"),
-                titlePanel("Google Trend Index"),
+                titlePanel("Auto Chilango: Dashboard"),
                 sidebarLayout(
                   sidebarPanel(
                     
                     # Select type of trend to plot
-                    selectInput(inputId = "type", label = strong("Trend index"),
+                    selectInput(inputId = "type", label = strong("Tendencias"),
                                 choices = unique(trend_data$type),
                                 selected = "Travel"),
                     
                     # Select date range to be plotted
-                    dateRangeInput("date", strong("Date range"), start = "2007-01-01", end = "2017-07-31",
+                    dateRangeInput("date", strong("Rango de fechas"), start = "2007-01-01", end = "2017-07-31",
                                    min = "2007-01-01", max = "2017-07-31"),
                     
                     # Select whether to overlay smooth trend line
-                    checkboxInput(inputId = "smoother", label = strong("Overlay smooth trend line"), value = FALSE),
+                    checkboxInput(inputId = "smoother", label = strong("Suavizado de la linea de tendencia"), value = FALSE),
                     
                     # Display only if the smoother is checked
                     conditionalPanel(condition = "input.smoother == true",
-                                     sliderInput(inputId = "f", label = "Smoother span:",
+                                     sliderInput(inputId = "f", label = "Nivel de suavizado:",
                                                  min = 0.01, max = 1, value = 0.67, step = 0.01,
                                                  animate = animationOptions(interval = 100)),
-                                     HTML("Higher values give more smoothness.")
+                                     HTML("Valores más altos dan un mayor suavizado.")
                     )
                   ),
                   
